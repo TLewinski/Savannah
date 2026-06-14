@@ -47,19 +47,27 @@
 	        //this.tanAngleB = Garden.random(-Garden.degrad(Garden.options.tanAngle), Garden.degrad(Garden.options.tanAngle));
 	    }
 	    Petal.prototype = {
-	        draw: function () {
-	            var ctx = this.bloom.garden.ctx;
-	            var v1, v2, v3, v4;
-	            v1 = new Vector(0, this.r).rotate(Garden.degrad(this.startAngle));
-	            v2 = v1.clone().rotate(Garden.degrad(this.angle));
-	            v3 = v1.clone().mult(this.stretchA); //.rotate(this.tanAngleA);
-	            v4 = v2.clone().mult(this.stretchB); //.rotate(this.tanAngleB);
-	            ctx.strokeStyle = this.bloom.c;
-	            ctx.beginPath();
-	            ctx.moveTo(v1.x, v1.y);
-	            ctx.bezierCurveTo(v3.x, v3.y, v4.x, v4.y, v2.x, v2.y);
-	            ctx.stroke();
-	        },
+	       draw: function () {
+		    var ctx = this.bloom.garden.ctx;
+		    var v1, v2, v3, v4;
+		    v1 = new Vector(0, this.r).rotate(Garden.degrad(this.startAngle));
+ 		   v2 = v1.clone().rotate(Garden.degrad(this.angle));
+ 		   v3 = v1.clone().mult(this.stretchA);
+  		  v4 = v2.clone().mult(this.stretchB);
+ 		   ctx.strokeStyle = 'rgba(255, 180, 0, 0.8)';
+ 		   ctx.fillStyle = 'rgba(255, 200, 0, 0.3)';
+   		 ctx.lineWidth = 2;
+  		  ctx.beginPath();
+  		  ctx.moveTo(v1.x, v1.y);
+  		  ctx.bezierCurveTo(v3.x, v3.y, v4.x, v4.y, v2.x, v2.y);
+   		 ctx.fill();
+  		  ctx.stroke();
+    // Draw brown center
+    ctx.fillStyle = 'rgba(80, 40, 0, 0.6)';
+    ctx.beginPath();
+    ctx.arc(0, 0, this.bloom.r * 0.3, 0, Math.PI * 2);
+    ctx.fill();
+},
 	        render: function () {
 	            if (this.r <= this.bloom.r) {
 	                this.r += this.growFactor; // / 10;
