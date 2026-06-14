@@ -142,8 +142,8 @@
 
 	    Garden.options = {
 	        petalCount: {
-	            min: 8,
-	            max: 15
+	            min: 13,
+	            max: 21
 	        },
 	        petalStretch: {
 	            min: 0.1,
@@ -160,14 +160,14 @@
 	        density: 10,
 	        growSpeed: 1000 / 60,
 	        color: {
-				rmin: 128,
-				rmax: 255,
-				gmin: 0,
-				gmax: 128,
-				bmin: 0,
-				bmax: 128,
-	            opacity: 0.1
-	        },
+ 		    rmin: 200,
+ 		    rmax: 255,
+ 		    gmin: 150,
+		    gmax: 200,
+		    bmin: 0,
+		    bmax: 50,
+ 		   opacity: 0.1
+		},
 	        tanAngle: 60
 	    };
 	    Garden.random = function (min, max) {
